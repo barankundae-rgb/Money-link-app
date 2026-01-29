@@ -21,16 +21,16 @@
   <div id="shortLink"></div>
 
   <script>
-    function shortenLink() {
-      const link = document.getElementById('originalLink').value;
-      if(!link) { alert("Shyiramo link!"); return; }
-      
-      // Urugero rworoshe rwa short link
-      const short = "https://yourapp.com/go/" + Math.random().toString(36).substring(2,8);
-      
-      document.getElementById('shortLink').innerHTML = 
-        `Short Link yawe: <a href="${link}" target="_blank">${short}</a>`;
-    }
+  function shortenLink() {
+    const link = document.getElementById('originalLink').value;
+    if(!link) { alert("Shyiramo link!"); return; }
+
+    const shortId = Math.random().toString(36).substring(2,8);
+    const shortLink = `${window.location.origin}/redirect.html?id=${shortId}&url=${encodeURIComponent(link)}`;
+
+    document.getElementById('shortLink').innerHTML = 
+      `Short Link yawe: <a href="${shortLink}" target="_blank">${shortLink}</a>`;
+  }
   </script>
 
 </body>
