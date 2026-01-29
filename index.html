@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Money Link App</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align:center; padding:50px; }
+    input { padding:10px; width:300px; margin:10px 0; }
+    button { padding:10px 20px; }
+    #shortLink { margin-top:20px; font-weight:bold; }
+  </style>
+</head>
+<body>
+
+  <h1>Money Link App</h1>
+  <p>Shyiramo link yawe:</p>
+  <input type="text" id="originalLink" placeholder="Paste your link here">
+  <br>
+  <button onclick="shortenLink()">Gira Short Link</button>
+
+  <div id="shortLink"></div>
+
+  <script>
+    function shortenLink() {
+      const link = document.getElementById('originalLink').value;
+      if(!link) { alert("Shyiramo link!"); return; }
+      
+      // Urugero rworoshe rwa short link
+      const short = "https://yourapp.com/go/" + Math.random().toString(36).substring(2,8);
+      
+      document.getElementById('shortLink').innerHTML = 
+        `Short Link yawe: <a href="${link}" target="_blank">${short}</a>`;
+    }
+  </script>
+
+</body>
+</html>
